@@ -1,0 +1,16 @@
+                              MOCK INTERVIEWS
+
+
+
+
+1) tell me about yourself
+2) what is pvm ?
+3) what is pep8 ?
+4)what is list ?
+5) what is different between list and tuple ?
+6) what is feature of python ?
+7) what is decorator ?
+8)how to count string leanth without inbuild function ?
+9)how to acess element of list ?
+10)why tuple faster than list ?
+11) what is python ?

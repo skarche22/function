@@ -1,0 +1,19 @@
+
+what is package?
+types of methods in class? Why we use methods?
+what is object?for else loop?
+self?
+diff btwn map() and filter()?
+diff btwn list and tuple ?
+What is init?
+What is function
+iterable vs iterator?
+how memory is managed in Python?
+What are datatypes
+What is decorator
+list comprehention?
+reverse the string
+add 2 list
+
+Garbage collector?
+wap for sorting elements in a list without using builtin function.

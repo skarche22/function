@@ -1,0 +1,38 @@
+OPERATORS: Are the special symbols. Eg- + , * , /, etc.
+OPERAND: It is the value on which the operator is applied.
+
+Arithmetic Operators
+Arithmetic operators are used to performing mathematical operations like
+ addition, subtraction, multiplication, and division.
+
+PRECEDENCE:
+P – Parentheses
+E – Exponentiation
+M – Multiplication     (Multiplication and division have the same precedence)
+D – Division
+A – Addition     (Addition and subtraction have the same precedence)
+S – Subtraction
+
+## Comparison of Relational operators compares the values.
+ It either returns True or False according to the condition.
+
+ = is an assignment operator and == comparison operator.
+
+## Logical Operators
+Logical operators perform Logical AND, Logical OR, and Logical NOT operations.
+ It is used to combine conditional statements.
+
+##Bitwise operators act on bits and perform the bit-by-bit operations.
+ These are used to operate on binary numbers.
+
+## is and is not are the identity operators both are used to check if two values are
+ located on the same part of the memory.
+
+
+##Ternary operators are also known as conditional expressions are operators that evaluate something based on a condition being true or false.
+It simply allows testing a condition in a single line replacing the multiline if-else making the code compact.
+
+Syntax :
+
+[on_true] if [expression] else [on_false]
+

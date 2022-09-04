@@ -1,0 +1,20 @@
+Mock Interview Duration 25-Minutes
+Taken by- Sarang Sir.
+first Mock(12/07/22):-
+
+1.Introduction 
+2.Tell me Git commands you know
+3.How we can clone in Git
+4.Pickling and unpickling
+5.OOPS and types
+5.What is Abstraction
+6.What is Decorator and write program on it. 
+7.Write a program on List comprehension.
+8.Write a program on dict- comprehension.
+9.What is Generator.Why we Use of generator when we have iterator.
+10.Difference of Generator and Iterator.
+11.What is Pass,continue, break statments.
+12.What is Shollow copy and Deepcopy.
+13.How we can copy object
+14.Difference between .py and .pyc
+15.Program to convert other datatype into list without using other list.

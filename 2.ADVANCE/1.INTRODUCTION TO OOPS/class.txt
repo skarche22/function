@@ -1,0 +1,51 @@
+Classes provide a means of bundling data and functionality together.
+Creating a new class creates a new type of object,
+allowing new instances of that type to be made.
+
+## self variable == always pointing to the current obj
+-self representants the instance(attr and methods) of the class
+-Bind attributes with the given obj
+
+-PVM is responsible to provide the value to the self variable
+- using self ===  1. we can declare the instance variable
+                  2.we can access the instance variable
+
+##consrructor:  __init__()
+ it will be invoke automatically after creation of the obj of class
+ main objectivr is to declare and initialize the variable
+for every obj constructor will executed only once
+
+In python we can declare multiple const. but pVM will consider only last one
+
+#constructor with parameters is known as parameterized constructor.
+The parameterized constructor takes its first argument as a reference to the instance being
+ constructed known as self and the rest of the arguments are provided by the programmer.
+
+##Destructors in Python
+ The __del__() method is a known as a destructor method in Python.
+ def __del__(self):
+  # body of destructor
+Note : A reference to objects is also deleted when the object goes out of reference or when the program ends.
+## Variables in python ==
+1)instance variable/object level varible== declared with the self ,
+=====================================The value is changes from obj to obj
+## Varies from obj to obj(for every obj a seperate copy)
+value varies from obj to obj
+
+2) class level variable==static variable
+## value is same for all obj / value is not varied from obj to obj
+for all objects single copy will be maintained at class level
+
+ ##@ What are various spaces to declare the static variables
+ 1.within class directly but outside of method
+ 2.inside the constructor  using classname
+ 3.inside the instance method by using classname
+ 4.inside classmethod by using
+ 5.inside the static method using
+
+local variable ===method level variable
+
+cls==current class level obj
+
+
+

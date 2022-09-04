@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "santosh",
+    "pass": "san12345"
+  },
+  {
+    "id": 2,
+    "name": "sk",
+    "pass": "abc123"
+  },
+  {
+    "id": 3,
+    "name": "Sairaj",
+    "pass": "Akshay123"
+  },
+  {
+    "id": 5,
+    "name": "harry",
+    "pass": "warje234"
+  },
+  {
+    "id": "20",
+    "name": "narendra",
+    "pass": "modi123"
+  },
+  {
+    "id": "25",
+    "name": "nana",
+    "pass": "12namam"
+  }
+]

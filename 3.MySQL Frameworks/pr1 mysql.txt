@@ -1,0 +1,486 @@
+Microsoft Windows [Version 10.0.19043.1826]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\admin>cd C:\Program Files\MySQL\MySQL Server 8.0
+
+C:\Program Files\MySQL\MySQL Server 8.0>mysql -u rrot -p
+'mysql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MySQL\MySQL Server 8.0>mysql -u root -p
+'mysql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MySQL\MySQL Server 8.0>cd C:\Program Files\MySQL\MySQL Server 8.0
+
+C:\Program Files\MySQL\MySQL Server 8.0>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| employee_details   |
+| emplx              |
+| information_schema |
+| liner222           |
+| mysql              |
+| new_schema         |
+| performance_schema |
+| sakila             |
+| student            |
+| study              |
+| sys                |
+| world              |
++--------------------+
+12 rows in set (0.09 sec)
+
+mysql> use study
+Database changed
+mysql> select * from study;
+ERROR 1146 (42S02): Table 'study.study' doesn't exist
+mysql> create table atm(
+    -> id int AUTO_INCREMENT,
+    -> name varchar(50),
+    -> adress varchar(100),
+    -> pin int NOT NULL,
+    -> UNIQUE(id));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> select * from atm;
+Empty set (0.02 sec)
+
+mysql> insert into atm values(101,'hdfc','wai',412803);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into atm values(102,'hdfc','phaltan',415523);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into atm values(103,'sbi','phaltan',415523);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into atm values(103,'axis','saswad',412233);
+ERROR 1062 (23000): Duplicate entry '103' for key 'atm.id'
+mysql> insert into atm values(104,'axis','saswad',412233);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into atm values(104,'mhbk','jejuri',412203);
+ERROR 1062 (23000): Duplicate entry '104' for key 'atm.id'
+mysql> insert into atm values(105,'mhbk','jejuri',412203);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into atm values(106,'mhbk','nagar',412378);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from atm;
++-----+------+---------+--------+
+| id  | name | adress  | pin    |
++-----+------+---------+--------+
+| 101 | hdfc | wai     | 412803 |
+| 102 | hdfc | phaltan | 415523 |
+| 103 | sbi  | phaltan | 415523 |
+| 104 | axis | saswad  | 412233 |
+| 105 | mhbk | jejuri  | 412203 |
+| 106 | mhbk | nagar   | 412378 |
++-----+------+---------+--------+
+6 rows in set (0.00 sec)
+
+mysql> alter table atm add column validity varchar(120);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table atm add column distance varchar(120);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from atm;
++-----+------+---------+--------+----------+----------+
+| id  | name | adress  | pin    | validity | distance |
++-----+------+---------+--------+----------+----------+
+| 101 | hdfc | wai     | 412803 | NULL     | NULL     |
+| 102 | hdfc | phaltan | 415523 | NULL     | NULL     |
+| 103 | sbi  | phaltan | 415523 | NULL     | NULL     |
+| 104 | axis | saswad  | 412233 | NULL     | NULL     |
+| 105 | mhbk | jejuri  | 412203 | NULL     | NULL     |
+| 106 | mhbk | nagar   | 412378 | NULL     | NULL     |
++-----+------+---------+--------+----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update atm validity 'yerly' and distance '4km' where id=101;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''yerly' and distance '4km' where id=101' at line 1
+mysql> update atm validity=yerly and distance=4km where id=101;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=yerly and distance=4km where id=101' at line 1
+mysql> update atm set validity=yerly and distance=4km where id=101;
+ERROR 1054 (42S22): Unknown column 'yerly' in 'field list'
+mysql> update atm set validity='yerly' and distance='4km' where id=101;
+ERROR 1292 (22007): Truncated incorrect DOUBLE value: 'yerly'
+mysql> update atm set validity='yearly' and distance='4km' where id=101;
+ERROR 1292 (22007): Truncated incorrect DOUBLE value: 'yearly'
+mysql> update atm set validity='yearly',distance='4km' where id=101;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update atm set ditance(
+    -> =case name
+    -> when 'hdfc' then '10km'
+    -> when 'mhbk' then '25km'
+    -> when 'axis' then '30km'
+    -> else distance
+    -> end
+    -> where name in('hdfc','mhbk','axis');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(
+=case name
+when 'hdfc' then '10km'
+when 'mhbk' then '25km'
+when 'axis' then '3' at line 1
+mysql> update atm set ditance
+    -> =case name
+    -> when 'hdfc' then '10km'
+    -> when 'mhbk' then '25km'
+    -> when 'axis' then '30km'
+    -> else distance
+    -> end
+    -> where name in('hdfc','mhbk','axis');
+ERROR 1054 (42S22): Unknown column 'ditance' in 'field list'
+mysql> update atm set ditance(
+    -> update atm set validity=yerly and distance=4km where id=101;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(
+update atm set validity=yerly and distance=4km where id=101' at line 1
+mysql> select * from atm;
++-----+------+---------+--------+----------+----------+
+| id  | name | adress  | pin    | validity | distance |
++-----+------+---------+--------+----------+----------+
+| 101 | hdfc | wai     | 412803 | yearly   | 4km      |
+| 102 | hdfc | phaltan | 415523 | NULL     | NULL     |
+| 103 | sbi  | phaltan | 415523 | NULL     | NULL     |
+| 104 | axis | saswad  | 412233 | NULL     | NULL     |
+| 105 | mhbk | jejuri  | 412203 | NULL     | NULL     |
+| 106 | mhbk | nagar   | 412378 | NULL     | NULL     |
++-----+------+---------+--------+----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update atmset ditance
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> update atm
+    -> set distance
+    -> =case name
+    -> when 'hdfc' then '10km'
+    -> when 'mhbk' then '20km'
+    -> when 'axis' then '30km'
+    -> else distance
+    -> end
+    -> where name in('hdfc','mhbk','axis');
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select * from atm;
++-----+------+---------+--------+----------+----------+
+| id  | name | adress  | pin    | validity | distance |
++-----+------+---------+--------+----------+----------+
+| 101 | hdfc | wai     | 412803 | yearly   | 10km     |
+| 102 | hdfc | phaltan | 415523 | NULL     | 10km     |
+| 103 | sbi  | phaltan | 415523 | NULL     | NULL     |
+| 104 | axis | saswad  | 412233 | NULL     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | NULL     | 20km     |
+| 106 | mhbk | nagar   | 412378 | NULL     | 20km     |
++-----+------+---------+--------+----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update atm set distance sbi='50km' where id=103;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sbi='50km' where id=103' at line 1
+mysql> update atm set distance '50km' where id=103;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''50km' where id=103' at line 1
+mysql> update atm set distance=50km where id=103;
+ERROR 1054 (42S22): Unknown column '50km' in 'field list'
+mysql> update atm set distance='50km' where id=103;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from atm;
++-----+------+---------+--------+----------+----------+
+| id  | name | adress  | pin    | validity | distance |
++-----+------+---------+--------+----------+----------+
+| 101 | hdfc | wai     | 412803 | yearly   | 10km     |
+| 102 | hdfc | phaltan | 415523 | NULL     | 10km     |
+| 103 | sbi  | phaltan | 415523 | NULL     | 50km     |
+| 104 | axis | saswad  | 412233 | NULL     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | NULL     | 20km     |
+| 106 | mhbk | nagar   | 412378 | NULL     | 20km     |
++-----+------+---------+--------+----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update atm
+    -> set validity
+    -> =case name
+    -> when 'hdfc' then 'yearly'
+    -> when 'sbi' then 'half_yearly'
+    -> when 'mhbk' then 'qurtarly'
+    -> else validity
+    -> end
+    -> where name in('hdfc','sbi','mhbk');
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 5  Changed: 4  Warnings: 0
+
+mysql> select * from atm;
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | axis | saswad  | 412233 | NULL        | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update atm set name='mhbk' where id=104;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from atm;
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | NULL        | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update atm set validity='monthly' where id=104;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from atm;
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from atm where validity like '%y';
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.01 sec)
+
+mysql> select * from atm where validity like '%y%';
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from atm where validity like 'ly%';
+Empty set (0.00 sec)
+
+mysql> select * from atm where validity like '%ly';
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from atm where validity like '%________ly';
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
++-----+------+---------+--------+-------------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from atm where validity like '%____ly';
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from atm where validity like '%_____ly';
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from atm ORDER by distance;
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select CONCAT('NAME','ADRESS') AS 'NAMING' from atm;
++------------+
+| NAMING     |
++------------+
+| NAMEADRESS |
+| NAMEADRESS |
+| NAMEADRESS |
+| NAMEADRESS |
+| NAMEADRESS |
+| NAMEADRESS |
++------------+
+6 rows in set (0.01 sec)
+
+mysql> select CONCAT(NAME,ADRESS) AS 'NAMING' from atm;
++-------------+
+| NAMING      |
++-------------+
+| hdfcwai     |
+| hdfcphaltan |
+| sbiphaltan  |
+| mhbksaswad  |
+| mhbkjejuri  |
+| mhbknagar   |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> select CONCAT(NAME,' * ',ADRESS) AS 'NAMING' from atm;
++----------------+
+| NAMING         |
++----------------+
+| hdfc * wai     |
+| hdfc * phaltan |
+| sbi * phaltan  |
+| mhbk * saswad  |
+| mhbk * jejuri  |
+| mhbk * nagar   |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> select CONCAT(PIN,' * ',DISTANCE) AS 'LOCATION' from atm;
++---------------+
+| LOCATION      |
++---------------+
+| 412803 * 10km |
+| 415523 * 10km |
+| 415523 * 50km |
+| 412233 * 30km |
+| 412203 * 20km |
+| 412378 * 20km |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from atm;
++-----+------+---------+--------+-------------+----------+
+| id  | name | adress  | pin    | validity    | distance |
++-----+------+---------+--------+-------------+----------+
+| 101 | hdfc | wai     | 412803 | yearly      | 10km     |
+| 102 | hdfc | phaltan | 415523 | yearly      | 10km     |
+| 103 | sbi  | phaltan | 415523 | half_yearly | 50km     |
+| 104 | mhbk | saswad  | 412233 | monthly     | 30km     |
+| 105 | mhbk | jejuri  | 412203 | qurtarly    | 20km     |
+| 106 | mhbk | nagar   | 412378 | qurtarly    | 20km     |
++-----+------+---------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select name, distance from atm where distance > '20km'group by distace;
+ERROR 1054 (42S22): Unknown column 'distace' in 'group statement'
+mysql> select name, distance from atm where distance > '20km'group by distance;
++------+----------+
+| name | distance |
++------+----------+
+| sbi  | 50km     |
+| mhbk | 30km     |
++------+----------+
+2 rows in set (0.01 sec)
+
+mysql> select name,adress,pin,validity,distance from atm where distance > '20km'group by distance;
++------+---------+--------+-------------+----------+
+| name | adress  | pin    | validity    | distance |
++------+---------+--------+-------------+----------+
+| sbi  | phaltan | 415523 | half_yearly | 50km     |
+| mhbk | saswad  | 412233 | monthly     | 30km     |
++------+---------+--------+-------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select name,adress,pin,validity,distance from atm where distance <'20km'group by distance;
++------+--------+--------+----------+----------+
+| name | adress | pin    | validity | distance |
++------+--------+--------+----------+----------+
+| hdfc | wai    | 412803 | yearly   | 10km     |
++------+--------+--------+----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select name,adress,pin,validity,distance from atm where distance <='20km'group by distance;
++------+--------+--------+----------+----------+
+| name | adress | pin    | validity | distance |
++------+--------+--------+----------+----------+
+| hdfc | wai    | 412803 | yearly   | 10km     |
+| mhbk | jejuri | 412203 | qurtarly | 20km     |
++------+--------+--------+----------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select name,adress,pin,validity,distance from atm where distance <='20km'group by pin;
++------+---------+--------+----------+----------+
+| name | adress  | pin    | validity | distance |
++------+---------+--------+----------+----------+
+| hdfc | wai     | 412803 | yearly   | 10km     |
+| hdfc | phaltan | 415523 | yearly   | 10km     |
+| mhbk | jejuri  | 412203 | qurtarly | 20km     |
+| mhbk | nagar   | 412378 | qurtarly | 20km     |
++------+---------+--------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql>

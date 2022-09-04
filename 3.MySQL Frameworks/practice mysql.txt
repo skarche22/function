@@ -1,0 +1,156 @@
+C:\Program Files\MySQL\MySQL Server 8.0\bin>
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 33
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database study;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee_details   |
+| emplx              |
+| information_schema |
+| liner222           |
+| mysql              |
+| new_schema         |
+| performance_schema |
+| sakila             |
+| student            |
+| study              |
+| sys                |
+| world              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use study;
+Database changed
+
+PRIMARY KEY(roll_no))' at line 5
+mysql> create table student(
+    -> NAME VARCHAR(100),
+    -> CLASS VARCHAR(100),
+    -> BRANCH VARCHAR(150),
+    -> roll_no int,
+    -> PRIMARY KEY(roll_no));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from student:
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1
+mysql> select * from student;
+Empty set (0.01 sec)
+
+mysql> insert into student(name,class,branch,roll_no)values('santosh','a','mech',101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++---------+-------+--------+---------+
+| NAME    | CLASS | BRANCH | roll_no |
++---------+-------+--------+---------+
+| santosh | a     | mech   |     101 |
++---------+-------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> insert into student(name,class,branch,roll_no)values('pratosh','a','mech',102),values('ganesh','a','mech'103);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values('ganesh','a','mech'103)' at line 1
+mysql> insert into student(name,class,branch,roll_no)values('pratosh','a','mech',102);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> insert into student(name,class,branch,roll_no)values('ganesh','a','mech',103);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student(name,class,branch,roll_no)values('pratibha','b','civil',104);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student(name,class,branch,roll_no)values('teju','b','civil',105);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student(name,class,branch,roll_no)values('priya','c','civil',106);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++----------+-------+--------+---------+
+| NAME     | CLASS | BRANCH | roll_no |
++----------+-------+--------+---------+
+| santosh  | a     | mech   |     101 |
+| pratosh  | a     | mech   |     102 |
+| ganesh   | a     | mech   |     103 |
+| pratibha | b     | civil  |     104 |
+| teju     | b     | civil  |     105 |
+| priya    | c     | civil  |     106 |
++----------+-------+--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> alter table student add column age int after name;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++----------+------+-------+--------+---------+
+| NAME     | age  | CLASS | BRANCH | roll_no |
++----------+------+-------+--------+---------+
+| santosh  | NULL | a     | mech   |     101 |
+| pratosh  | NULL | a     | mech   |     102 |
+| ganesh   | NULL | a     | mech   |     103 |
+| pratibha | NULL | b     | civil  |     104 |
+| teju     | NULL | b     | civil  |     105 |
+| priya    | NULL | c     | civil  |     106 |
++----------+------+-------+--------+---------+
+6 rows in set (0.00 sec)
+
+
+mysql> where name in('santosh','ganesh');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where name in('santosh','ganesh')' at line 1
+mysql> select * from student;
++----------+------+-------+--------+---------+
+| NAME     | age  | CLASS | BRANCH | roll_no |
++----------+------+-------+--------+---------+
+| santosh  | NULL | a     | mech   |     101 |
+| pratosh  | NULL | a     | mech   |     102 |
+| ganesh   | NULL | a     | mech   |     103 |
+| pratibha | NULL | b     | civil  |     104 |
+| teju     | NULL | b     | civil  |     105 |
+| priya    | NULL | c     | civil  |     106 |
++----------+------+-------+--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> update student
+    -> set age
+    -> =case name
+    -> when 'santosh' then '30'
+    -> when 'pratosh' then 32
+    -> else age
+    -> end
+    -> where name in ('santosh','pratosh');
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from student;
++----------+------+-------+--------+---------+
+| NAME     | age  | CLASS | BRANCH | roll_no |
++----------+------+-------+--------+---------+
+| santosh  |   30 | a     | mech   |     101 |
+| pratosh  |   32 | a     | mech   |     102 |
+| ganesh   | NULL | a     | mech   |     103 |
+| pratibha | NULL | b     | civil  |     104 |
+| teju     | NULL | b     | civil  |     105 |
+| priya    | NULL | c     | civil  |     106 |
++----------+------+-------+--------+---------+
+6 rows in set (0.00 sec)
+
+mysql>
+
