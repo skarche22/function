@@ -60,13 +60,21 @@
 #     l.append(x)
 # print(l)
 
+# list
+# t=eval(input("enter the tuple of elemets:"))
+# c=0
+# sum=0
+# for i in t:
+#     c+=1
+#     sum+=i
+# print("The sum of elements",sum)
+# print(c)
+# print("The average of elements",sum/c)
 
-t=eval(input("enter the tuple of elemets:"))
-c=0
-sum=0
-for i in t:
-    c+=1
-    sum+=i
-print("The sum of elements",sum)
-print(c)
-print("The average of elements",sum/c)
+
+# Enumerate method in list
+course=['history','geography','maths','english']
+print(course[0:2])
+for index,sub in enumerate(course):
+    print(index,sub)
+

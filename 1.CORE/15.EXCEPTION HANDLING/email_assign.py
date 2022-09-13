@@ -34,7 +34,7 @@ if len(email)>=6:   #(nikhil@gmail.com)  # email len is 6 ,nmore than 6 char so 
                     elif i=="_" or  i=="." or i=="@":   # to check all condition in mail
                         continue
                     else:
-                        d=1   #  any spical symbol are used to print wrong mail
+                        d==1   #  any spical symbol are used to print wrong mail
 
 
                 if k==1 or j==1 or d==1:

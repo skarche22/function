@@ -35,7 +35,7 @@
 # print(mul(x,y))
 # print(div(x,y))
 # ##Function to check evenodd(how to pass arg and call it)
-
+#
 # def evenOdd(x):
 #     '''fun to check if no is even or odd'''
 #     if (x%2==0):
@@ -46,7 +46,7 @@
 # print(evenOdd.__doc__)
 # for i in range(n):
 #     evenOdd(i)
-#
+
 ## python programme to demonstrate the default argument==
 # def myFun(x,y=50):
 #     print("x:",x,"y:",y)
@@ -59,16 +59,33 @@
 #
 # user(lname='karche',fname='santosh')
 
-# ## variable len non-keword arg
+# # ## variable len non-keword arg
 # def fun(*args):
 #     for arg in args:
-#         print(arg)
+#         print(arg,end=" ")
 # fun('Hello','Welcome','to','Team','brainworks')
 
-# ##
+# # ##
 # def fun(*argv,x):
 #     for arg in argv:
 #         print(arg)
-#     print(x)
+#         print("the value",x)
 # fun('Hello','Welcome','to','Team','brainworks',x=10)
+# num=5
+# res=1
+# for i in range(num):
+#     res=res*num
+#     num=num-1
+#     print(res)
 
+
+
+def fact(num):
+    i=1
+    res=1
+    while(num>1):
+        res=res*num
+        num-=1
+        i+=1
+    return res
+print(fact(5))

@@ -71,7 +71,7 @@
 #
 # #Addition of elements in sequence
 # # by regular fun
-# from functools import *
+from functools import *
 # l=[10,20,30,40,50]
 # # def addition():
 # #     res=0
@@ -85,7 +85,9 @@
 # r=reduce(lambda x,y:x+y ,l)
 # print(r)
 
-
+lst=[1,2,3,4,5]
+op=reduce(lambda x,y:x*y,lst)
+print(op)
 
 
 

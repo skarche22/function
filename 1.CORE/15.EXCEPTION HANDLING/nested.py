@@ -33,11 +33,11 @@
 # finally:
 #     print('finally')
 
-## When the exception ind=side try block
+## When the exception inside try block
 #
 # else block with try-except-finally:
 # We can use else block with try-except-finally blocks.
-# else block will be executed if and only if there are no exceptions inside try block.
+# else block will be executed if and only if there are exceptions inside try block.
 # try:
 # Risky Code
 # except:

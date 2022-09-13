@@ -3,7 +3,7 @@
 #     print ("the value of x is",x)
 # else:
 #     print("your program successfully executed")
-#
+
 # print(" 2> By using if inside the block")
 # for x in range(10):
 #     if x>5:
@@ -23,22 +23,23 @@
 # finally:
 #  Cleanup code
 
-#
+# #
 # try:
 #     try:
 #         print(10 / 0)
 #     except Exception as e:
 #         print('error:', e)
 #     finally:
-#         print("Nested ")
+#         print("need to skip except block")
 # except:
 #     try:
 #         print(10 / 0)
 #     except Exception as e:
 #         print('error in cxcept block:', e)
-#
+#     finally: print("this is inside except block")    
+
 # else:
-#     print('else')
+#     print('This is after try block result')
 # finally:
 #     try:
 #         print(10/0)
@@ -46,7 +47,7 @@
 #         print('error in f:',e)
 
 
-## When the exception ind=side try block
+## When the exception inside try block
 #
 # else block with try-except-finally:
 # We can use else block with try-except-finally blocks.
@@ -63,7 +64,7 @@
 #
 # try:
 #     print('try')
-#     print(10/0)
+#     print(10/1)
 # except:
 #     print('except')
 # else:
