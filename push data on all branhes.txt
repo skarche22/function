@@ -1,0 +1,212 @@
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise
+$ git init
+Initialized empty Git repository in D:/Python/Python Exercise/.git/
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ touch demo.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git add .
+warning: LF will be replaced by CRLF in Assignment/bw_assignment1_1.py.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Assignment/bw_assignment1_2.py.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Core Python/bw_assignment2_dictionary (1).py.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Core Python/bw_assignment2_functions (1).py.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Core Python/bw_assignment2_simple_and_list_progs (1).py.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Core Python/bw_assignment2_string (1).py.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Core Python/bw_assignment2_tuple (1).py.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git commit -m 'initial commit'
+[master (root-commit) 88c6187] initial commit
+ 32 files changed, 2648 insertions(+)
+ create mode 100644 41 Questions to Test your Knowledge of Python Strings. Q&A .pdf
+ create mode 100644 52 Python Question Answer - Mostly & Common.pdf
+ create mode 100644 60 Questions to Test Your Knowledge of Python Lists Team Brainworks (G.D).pdf
+ create mode 100644 Assignment/52 Python Question Answer - Mostly & Common.pdf
+ create mode 100644 Assignment/Assignment2.docx
+ create mode 100644 Assignment/First_Assignment.txt
+ create mode 100644 Assignment/Questions_Asked-26-03-22 - Jupyter Notebook.pdf
+ create mode 100644 Assignment/WhatsApp Image 2022-06-26 at 5.59.21 PM.jpeg
+ create mode 100644 Assignment/WhatsApp Image 2022-06-26 at 5.59.22 PM.jpeg
+ create mode 100644 Assignment/WhatsApp Image 2022-06-26 at 5.59.23 PM.jpeg
+ create mode 100644 Assignment/WhatsApp Image 2022-06-29 at 11.23.43 AM.jpeg
+ create mode 100644 Assignment/bw_assignment1_1.py
+ create mode 100644 Assignment/bw_assignment1_2.py
+ create mode 100644 Assignment/~$signment2.docx
+ create mode 100644 Core Python/Assignment-2-20220419T103650Z-001.zip
+ create mode 100644 Core Python/Assignment2 (1).docx
+ create mode 100644 Core Python/bw_assignment2_dictionary (1).py
+ create mode 100644 Core Python/bw_assignment2_functions (1).py
+ create mode 100644 Core Python/bw_assignment2_simple_and_list_progs (1).py
+ create mode 100644 Core Python/bw_assignment2_string (1).py
+ create mode 100644 Core Python/bw_assignment2_tuple (1).py
+ create mode 100644 Exercise pdf/1621051233662.pdf
+ create mode 100644 Exercise pdf/41 Questions to Test your Knowledge of Python Strings. Q&A .pdf
+ create mode 100644 Exercise pdf/60 Questions to Test Your Knowledge of Python Lists Team Brainworks (G.D).pdf
+ create mode 100644 Exercise pdf/Looping.docx
+ create mode 100644 Exercise pdf/String Questions made by uday.docx
+ create mode 100644 Exercise pdf/list  questions made by uday.docx
+ create mode 100644 Exercise pdf/list notes.docx
+ create mode 100644 Exercise pdf/mix questions.docx
+ create mode 100644 Exercise pdf/set questions made by uday.docx
+ create mode 100644 Exercise pdf/tuple questions made by uday.docx
+ create mode 100644 demo.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git branch
+* master
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git branch suresh
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git branch
+* master
+  suresh
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (master)
+$ git checkout suresh
+Switched to branch 'suresh'
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ touch test1.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git add .
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git commit -m 'second commit'
+[suresh 485ad64] second commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git -b checkout santosh
+unknown option: -b
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git branch
+  master
+* suresh
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git branch santosh
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git branch
+  master
+  santosh
+* suresh
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (suresh)
+$ git checkout santosh
+Switched to branch 'santosh'
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (santosh)
+$ touch test2.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (santosh)
+$ git status
+On branch santosh
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (santosh)
+$ git checkout -b aniruddha
+Switched to a new branch 'aniruddha'
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ touch test3.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git add .
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git commit -m 'thirst commit'
+[aniruddha 2d7a3da] thirst commit
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test2.txt
+ create mode 100644 test3.txt
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git status
+On branch aniruddha
+nothing to commit, working tree clean
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git remote add origingit@github.com:AniGavade/Welcome.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git remote -v
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git push --all origin
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git fetch --all
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git remote add origin git@github.com:AniGavade/Welcome.git
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git fetch --all
+Fetching origin
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ git push --all origin
+Enumerating objects: 37, done.
+Counting objects: 100% (37/37), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (36/36), done.
+Writing objects: 100% (37/37), 2.87 MiB | 416.00 KiB/s, done.
+Total 37 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+To github.com:AniGavade/Welcome.git
+ * [new branch]      aniruddha -> aniruddha
+ * [new branch]      master -> master
+ * [new branch]      santosh -> santosh
+ * [new branch]      suresh -> suresh
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$ ^C
+
+HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
+$
