@@ -170,7 +170,7 @@ usage: git remote add [<options>] <name> <url>
 
 
 HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
-$ git remote -v
+$ git remote -v              ## to check the status of url & we are ready to (fetch) & (push) data
 
 HP@DESKTOP-I0V74FT MINGW64 /d/Python/Python Exercise (aniruddha)
 $ git push --all origin
